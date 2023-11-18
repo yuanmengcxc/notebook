@@ -10,7 +10,7 @@ struct TreeNode {
 
     TreeNode(int v) : val(v), left(nullptr), right(nullptr) {}
 };
-//ÏÈĞò
+//å…ˆåº
 void preOrder(TreeNode* head) {
     if (head != nullptr) {
         stack<TreeNode*> stack;
@@ -29,7 +29,7 @@ void preOrder(TreeNode* head) {
         cout << endl;
     }
 }
-//ÖĞĞò
+//ä¸­åº
 void inOrder(TreeNode* head) {
     if (head != nullptr) {
         stack<TreeNode*> stack;
@@ -48,7 +48,7 @@ void inOrder(TreeNode* head) {
         cout << endl;
     }
 }
-//ºóĞò:Á½¸öÕ»ÊµÏÖ
+//ååº:ä¸¤ä¸ªæ ˆå®ç°
 void posOrderTwoStacks(TreeNode* head) {
     if (head != nullptr) {
         stack<TreeNode*> stack,collect;
@@ -73,30 +73,30 @@ void posOrderTwoStacks(TreeNode* head) {
         cout << endl;
     }
 }
-//ºóĞò£ºÒ»¸öÕ»ÊµÏÖ
+//ååºï¼šä¸€ä¸ªæ ˆå®ç°
 void posOrderOneStack(TreeNode* h) {
     if (h != nullptr) {
-        // Èç¹ûÊ¼ÖÕÃ»ÓĞ´òÓ¡¹ı½Úµã£¬h¾ÍÒ»Ö±ÊÇÍ·½Úµã
-        // Ò»µ©´òÓ¡¹ı½Úµã£¬h¾Í±ä³É´òÓ¡½Úµã
-        // Ö®ºóhµÄº¬Òå : ÉÏÒ»´Î´òÓ¡µÄ½Úµã
-        //Í·½ÚµãÒ»¶¨ÊÇ×îºó´òÓ¡µÄ
+        // å¦‚æœå§‹ç»ˆæ²¡æœ‰æ‰“å°è¿‡èŠ‚ç‚¹ï¼Œhå°±ä¸€ç›´æ˜¯å¤´èŠ‚ç‚¹
+        // ä¸€æ—¦æ‰“å°è¿‡èŠ‚ç‚¹ï¼Œhå°±å˜æˆæ‰“å°èŠ‚ç‚¹
+        // ä¹‹åhçš„å«ä¹‰ : ä¸Šä¸€æ¬¡æ‰“å°çš„èŠ‚ç‚¹
+        //å¤´èŠ‚ç‚¹ä¸€å®šæ˜¯æœ€åæ‰“å°çš„
         stack<TreeNode*> stack;
         stack.push(h);
         
         while (!stack.empty()) {
             TreeNode* cur = stack.top();
-            if (cur->left != nullptr && h != cur->left && h != cur->right) {//h´ú±í½Ø¶Ï£¬¼´ÄãÖ®ºóÒªÖ´ĞĞµÄÖ®Ç°ÆäÊµÒÑ¾­Ö´ĞĞ¹ıÁË
-                //ÓĞ×óÊ÷ÇÒ×óÊ÷Î´±»´¦Àí¹ı
+            if (cur->left != nullptr && h != cur->left && h != cur->right) {//hä»£è¡¨æˆªæ–­ï¼Œå³ä½ ä¹‹åè¦æ‰§è¡Œçš„ä¹‹å‰å…¶å®å·²ç»æ‰§è¡Œè¿‡äº†
+                //æœ‰å·¦æ ‘ä¸”å·¦æ ‘æœªè¢«å¤„ç†è¿‡
                 stack.push(cur->left);
             }
             else if (cur->right != nullptr && h != cur->right) {
-                // ÓĞÓÒÊ÷ÇÒÓÒÊ÷Ã»´¦Àí¹ı
+                // æœ‰å³æ ‘ä¸”å³æ ‘æ²¡å¤„ç†è¿‡
                 stack.push(cur->right);
             }
             else {
-                // ×óÊ÷¡¢ÓÒÊ÷ Ã»ÓĞ »òÕß ¶¼´¦Àí¹ıÁË
+                // å·¦æ ‘ã€å³æ ‘ æ²¡æœ‰ æˆ–è€… éƒ½å¤„ç†è¿‡äº†
                 cout << cur->val << " ";
-                h = stack.top();//hµÄº¬Òå : ÉÏÒ»´Î´òÓ¡µÄ½Úµã
+                h = stack.top();//hçš„å«ä¹‰ : ä¸Šä¸€æ¬¡æ‰“å°çš„èŠ‚ç‚¹
                 stack.pop();
             }
         }
@@ -203,37 +203,37 @@ int main() {
     head->right->left = new TreeNode(6);
     head->right->right = new TreeNode(7);
     preOrder(head);
-    cout << "ÏÈĞò±éÀú·Çµİ¹é°æ" << endl;
+    cout << "å…ˆåºéå†éé€’å½’ç‰ˆ" << endl;
     inOrder(head);
-    cout << "ÖĞĞò±éÀú·Çµİ¹é°æ" << endl;
+    cout << "ä¸­åºéå†éé€’å½’ç‰ˆ" << endl;
     posOrderTwoStacks(head);
-    cout << "ºóĞò±éÀú·Çµİ¹é°æ - 2¸öÕ»ÊµÏÖ" << endl;
+    cout << "ååºéå†éé€’å½’ç‰ˆ - 2ä¸ªæ ˆå®ç°" << endl;
     posOrderOneStack(head);
-    cout << "ºóĞò±éÀú·Çµİ¹é°æ - 1¸öÕ»ÊµÏÖ" << endl;
+    cout << "ååºéå†éé€’å½’ç‰ˆ - 1ä¸ªæ ˆå®ç°" << endl;
 
     vector<int> preOrderResult = preorderTraversal(head);
-    cout << "ÓÃÒ»¸öÕ»Íê³ÉÏÈĞò±éÀú: ";
+    cout << "ç”¨ä¸€ä¸ªæ ˆå®Œæˆå…ˆåºéå†: ";
     for (int val : preOrderResult) {
         cout << val << " ";
     }
     cout << endl;
 
     vector<int> inOrderResult = inorderTraversal(head);
-    cout << "ÓÃÒ»¸öÕ»Íê³ÉÖĞĞò±éÀú: ";
+    cout << "ç”¨ä¸€ä¸ªæ ˆå®Œæˆä¸­åºéå†: ";
     for (int val : inOrderResult) {
         cout << val << " ";
     }
     cout << endl;
 
     vector<int> posOrderTwoStacksResult = postorderTraversalTwoStacks(head);
-    cout << "ÓÃÁ½¸öÕ»Íê³ÉºóĞò±éÀú: ";
+    cout << "ç”¨ä¸¤ä¸ªæ ˆå®Œæˆååºéå†: ";
     for (int val : posOrderTwoStacksResult) {
         cout << val << " ";
     }
     cout << endl;
 
     vector<int> posOrderOneStackResult = postorderTraversalOneStack(head);
-    cout << "ÓÃÒ»¸öÕ»Íê³ÉºóĞò±éÀú: ";
+    cout << "ç”¨ä¸€ä¸ªæ ˆå®Œæˆååºéå†: ";
     for (int val : posOrderOneStackResult) {
         cout << val << " ";
     }
