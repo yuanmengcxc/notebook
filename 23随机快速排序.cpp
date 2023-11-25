@@ -9,7 +9,7 @@ void swap(int arr[], int i, int j);
 void quickSort2(int arr[], int l, int r);
 void partition2(int arr[], int l, int r, int x);
 static int first, last;
-//½»»»
+//Â½Â»Â»Â»
 void swap(int arr[], int i, int j) {
     int tmp = arr[i];
     arr[i] = arr[j];
@@ -42,7 +42,7 @@ int partition1(int arr[], int l, int r, int x) {
 }
 
 
-//ÍÆ¼ö
+//ÃÃ†Â¼Ã¶
 void quickSort2(int arr[], int l, int r) {
     if (l >= r) {
         return;
