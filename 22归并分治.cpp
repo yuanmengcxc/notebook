@@ -12,7 +12,7 @@ long long merge(int l, int m, int r);
 int main() {
     int a, b, i=0;
 
-    while (cin >> a) { // ×¢Òâ while ´¦Àí¶à¸ö case
+    while (cin >> a) { // Ã—Â¢Ã’Ã¢ while Â´Â¦Ã€Ã­Â¶Ã Â¸Ã¶ case
         int m = a;
         while (m) {
             cin >> b;
