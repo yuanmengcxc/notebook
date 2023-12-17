@@ -6,27 +6,27 @@ class Bitset {
 private:
 	std::vector<int> set;
 	const int size;
-	int zeros;//Î»Í¼ÖĞÓĞ¼¸¸ö0
-	int ones;//¼¸¸ö1
-	bool reverse;//ÊÇ·ñ·­×ª¹ı
+	int zeros;//ä½å›¾ä¸­æœ‰å‡ ä¸ª0
+	int ones;//å‡ ä¸ª1
+	bool reverse;//æ˜¯å¦ç¿»è½¬è¿‡
 
 public:
-	//³õÊ¼»¯
+	//åˆå§‹åŒ–
 	Bitset(int n) :size(n), zeros(n), ones(0), reverse(false){
 		set.resize((n + 31) / 32);
 	}
-	//°ÑiÕâ¸öÊı³É1
+	//æŠŠiè¿™ä¸ªæ•°æˆ1
 	void fix(int i) {
 		int index = i / 32;
 		int  bit = i % 32;
-		if (!reverse) {//Ã»·­×ª¹ı
+		if (!reverse) {//æ²¡ç¿»è½¬è¿‡
 			if ((set[index] & (1 << bit)) == 0) {
 				zeros--;
 				ones++;
 				set[index] |= (1 << bit);
 			}
 		}
-		else {//·­×ªÁË
+		else {//ç¿»è½¬äº†
 			if ((set[index] & (1 << bit)) != 0) {
 				zeros++;
 				ones--;
@@ -34,7 +34,7 @@ public:
 			}
 		}
 	}
-	//iÕâ¸öÊıÒÆ³ö
+	//iè¿™ä¸ªæ•°ç§»å‡º
 	void unfix(int i) {
 		int index = i / 32;
 		int  bit = i % 32;
@@ -53,21 +53,21 @@ public:
 			}
 		}
 	}
-	//·­×ª
+	//ç¿»è½¬
 	void flip() {
 		reverse = !reverse;
 		int tmp = zeros;
 		zeros = ones;
 		ones = tmp;
 	}
-	//ÊÇ·ñÈ«1
+	//æ˜¯å¦å…¨1
 	bool all() {
 		return ones == size;
 	}
 	bool one() {
 		return ones > 0;
 	}
-	//1µÄÊıÁ¿
+	//1çš„æ•°é‡
 	int count() {
 		return ones;
 	}
